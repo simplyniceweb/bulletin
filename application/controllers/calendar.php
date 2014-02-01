@@ -10,6 +10,8 @@ class Calendar extends CI_Controller {
 		$mysession = $this->session->userdata('logged');
 		if(!$mysession) redirect('login');
 
+		$activity = NULL;
+
 		$prefs = array (
 			'show_next_prev'  => TRUE,
 			'next_prev_url'   => 'http://localhost/bulletin/calendar'
@@ -47,18 +49,20 @@ class Calendar extends CI_Controller {
 		
 		   {table_close}</table>{/table_close}
 		';
-		
+
 		$this->db->from('bulletin');
 		$this->db->where('announcement_status', 0);
 		$this->db->like('announcement_start', date("Y-m"));
 		$announcement = $this->db->get();
 
-		foreach($announcement->result() as $result) {
-			$date = $result->announcement_start;
-			$all = explode(" ", $date);
-			$day = explode("-", $all[0]);
-			$no = $day[2]; 
-			$activity[$no] = base_url()."a/".$result->announcement_id."";
+		if($announcement->num_rows > 0 ) {
+			foreach($announcement->result() as $result) {
+				$date = $result->announcement_start;
+				$all = explode(" ", $date);
+				$day = explode("-", $all[0]);
+				$no = $day[2]; 
+				$activity[$no] = base_url()."a/".$result->announcement_id."";
+			}
 		}
 
 		$this->load->library('calendar', $prefs);
