@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/styles/select2.css"/>
     <style>
+		a, .glyphicon { color: green !important }
+		body { background: #F1F1F1 }
 		.design { border: 0 !important; padding:0 !important; margin:0 !important }
 	</style>
 </head>
@@ -23,7 +25,7 @@
 	<?php } ?>
 
     	<div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Add Student Number</h3>
                 </div>
@@ -51,7 +53,7 @@
         
         
     	<div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Edit Student Number</h3>
                 </div>
@@ -87,7 +89,7 @@
         </div>
         
     	<div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Delete Student Number</h3>
                 </div>

@@ -14,6 +14,10 @@ $civil_status = array(
 	<base href="<?php echo base_url(); ?>">
 	<title>-::Web Based Generator::<?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
+    <style>
+		a, .glyphicon { color: green !important }
+		body { background: #F1F1F1 }
+	</style>
 </head>
 <body>
 <?php require_once('includes/header.php'); ?>
@@ -22,7 +26,7 @@ $civil_status = array(
     <div class="row">
         <div class="col-sm-6 col-md-offset-3">
         
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
             
                 <div class="panel-heading">
                     <h3 class="panel-title">Personal Information</h3>

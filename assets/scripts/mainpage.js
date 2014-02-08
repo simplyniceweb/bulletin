@@ -128,6 +128,7 @@
 					cache: false,
 					success: function (response) {
 						$(calendarConf.wrapper).html(response);
+						$('a[href*="http://"]').addClass( "badge" );
 					}, error: function () {
 						console.log('Something went wrong..');
 					}

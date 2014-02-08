@@ -6,15 +6,21 @@
 	<title>Bulletin Board</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
     <style>
+		a, .glyphicon { color: green !important }
+		body { background: #F1F1F1 }
 		.bulletin-stage { margin: 5px; }
+		a[href*="http://"].badge { color: #FFF !important; background: green !important }
+		.table { background: #FFF; border: 1px solid #CCC; }
 	</style>
 </head>
 <body>
 <?php require_once('includes/header.php'); ?>
 <div class="container">
-	<div class="row">        
-    
-        <div class="col-sm-6 col-md-offset-3 bulletin-stage">
+	<div class="row">
+        <div class="calendar-wrapper col-md-3">
+        	<?php echo $this->calendar->generate(date("Y"),date("m"),$activity); ?>
+        </div>
+        <div class="col-sm-6 bulletin-stage">
             <?php if($session['user_level'] == 99) { ?>
                 <select id="department_id" class="form-control" name="department_id">
                     <option value="">Choose Category</option>
@@ -32,8 +38,10 @@
 			</ul>
             <?php } ?>
         </div>
+	</div>
+	<div class="row">
     	<br><br><br>
-        <div class="panel panel-primary">
+        <div class="panel panel-success">
             <div class="panel-heading">
 				<h3 class="panel-title">List of announcements</h3>
             </div>
@@ -59,5 +67,11 @@
 </div>
 
 <?php require_once('includes/footer.php'); ?>
+<script>
+	$(document).ready(function(){
+		$('a[href*="http://"]').addClass( "badge" );
+	})
+</script>
+
 </body>
 </html>

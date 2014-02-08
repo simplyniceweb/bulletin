@@ -23,6 +23,8 @@ if(!is_null($announcement)) {
 	<title>Bulletin Board</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
     <style>
+		a, .glyphicon { color: green !important }
+		body { background: #F1F1F1 }
 		ul > li{ list-style-type: none; margin: 5px; float: left }
 		ul > li > i { background-color: #000; color: #FFF; }
 		.announcement-img { position: relative }
@@ -41,7 +43,7 @@ if(!is_null($announcement)) {
     <?php endif; ?>
     
         <div class="col-md-7 col-md-offset-2">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Add announcement</h3>
                 </div>

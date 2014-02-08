@@ -5,6 +5,10 @@
 	<base href="<?php echo base_url(); ?>">
 	<title>Student Number</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
+    <style>
+		a, .glyphicon { color: green !important }
+		body { background: #F1F1F1 }
+	</style>
 </head>
 <body>
 <?php require_once('includes/header.php'); ?>	
@@ -18,7 +22,7 @@
 	<?php } ?>
 
     	<div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Add Department</h3>
                 </div>
@@ -37,7 +41,7 @@
         
         
     	<div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Edit Department</h3>
                 </div>
@@ -64,7 +68,7 @@
         </div>
         
     	<div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Delete Department</h3>
                 </div>
