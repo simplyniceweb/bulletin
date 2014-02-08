@@ -5,7 +5,7 @@
 	}
 
 	var config = {
-		baseUrl : window.location.protocol+"//"+window.location.host+'/survey',
+		baseUrl : window.location.protocol+"//"+window.location.host+'/bulletin',
 		counter : 1,
 		doc     : $(document)
 	}
@@ -57,5 +57,32 @@
 	config.doc.removeQuestion();
 	config.doc.addQuestion();
 	config.doc.showSurvey();
+
+	var editUserConf = {
+		select: ".edit-user"
+	}
+	
+	
+	var editUserFunc = {
+		showUsers: function(){
+			return this.delegate(editUserConf.select, 'change', function () {
+				var me = $(this), department_id = me.val();
+				if(department_id == "") return false;
+				jQuery.ajax({
+					type: "POST",
+					url: config.baseUrl+"/admin/user_list/",
+					data: {'department_id': department_id},
+					cache: false,
+					success: function (response) {
+						$("div.users-list").html(response);
+					}, error: function () {
+						console.log('Something went wrong..');
+					}
+				});
+			})
+		}
+	}
+	$.extend(config.doc, editUserFunc);
+	config.doc.showUsers();
 
 }(jQuery, window, document));

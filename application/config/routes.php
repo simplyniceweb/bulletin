@@ -42,6 +42,7 @@ $route['default_controller'] = "index";
 $route['calendar/(:num)/(:num)'] = "index/calendar";
 $route['a/(:num)'] = "announcement/index/(:num)";
 $route['a/e/(:num)'] = "announcement/edit/(:num)";
+$route['settings/(:num)'] = "settings/index";
 $route['404_override'] = '';
 
 

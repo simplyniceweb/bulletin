@@ -10,12 +10,22 @@ class Settings extends CI_Controller {
 		$mysession = $this->session->userdata('logged');
 		if (!$mysession) redirect('index');
 
+		$student_id = $this->uri->segment(2);
+		if(!empty($student_id) && is_numeric($student_id) && $mysession['user_level'] == 99) {
+			$user_id = $student_id;
+			$action = 1;
+		} else {
+			$user_id = $mysession['user_id'];
+			$action = 0;
+		}
+
 		$this->db->from('users');
-		$this->db->where('user_id', $mysession['user_id']);
+		$this->db->where('user_id', $user_id);
 		$info = $this->db->get();
 
 		$data = array(
 			'session' => $mysession,
+			'action'  => $action,
 			'info'    => $info->result()
 		);
 		
@@ -53,8 +63,10 @@ class Settings extends CI_Controller {
 			$profile_picture = $original_image;
 		}
 		
+		$user_id = $this->input->post("user_id");
+		
 		$this->db->from('users');
-		$this->db->where('user_id', $mysession['user_id']);
+		$this->db->where('user_id', $user_id);
 		$is_user = $this->db->get();
 		
 		if($is_user->num_rows > 0) {
@@ -68,10 +80,19 @@ class Settings extends CI_Controller {
 				'user_birthday'        => $this->input->post('student_birthday'),
 			);
 			
-			$this->db->where('user_id', $mysession['user_id']);
+			$password = $this->input->post("student_password");
+			if(!empty($password)) {
+				$data['user_password'] = sha1($password);
+			}
+
+			$this->db->where('user_id', $user_id);
 			$this->db->update('users', $data);
 			
-			redirect('settings/?update=true');
+			if($mysession['user_id'] == $user_id) {
+				redirect('settings/?update=true');
+			} else {
+				redirect('settings/'. $user_id .'?update=true');
+			}
 			
 		} else {
 			return FALSE;

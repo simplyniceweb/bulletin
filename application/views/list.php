@@ -9,7 +9,7 @@
 		a, .glyphicon { color: green !important }
 		body { background: #F1F1F1 }
 		ul.image > li{ list-style-type: none; margin: 5px; float: left }
-		ul.image > li > i { background-color: #000; color: #FFF; }
+		ul.image > li > i { background-color: #000; color: #FFF !important; font-size:16px }
 		.announcement-img { position: relative }
 		.glyphicon.glyphicon-remove-circle { cursor:pointer; margin-left: 5px; top: 5px; position: absolute; }
 	</style>
@@ -61,7 +61,9 @@
             ?>
             <li class="announcement-img">
             <i class="glyphicon glyphicon-remove-circle" data-entry-id="<?php echo $img->image_id; ?>"></i>
-            <img src="assets/announcement/<?php echo $img->image_name; ?>" class="img-square img-<?php echo $img->image_id; ?>"  style="padding: 3px; border: 1px solid #CCC; background: #FFF; width: 150px; height: 150px">
+            <a href="#">
+            <img src="assets/announcement/<?php echo $img->image_name; ?>" class="img-square img-<?php echo $img->image_id; ?>"  style="padding: 3px; border: 1px solid #CCC; background: #FFF; width: 150px; height: 150px" data-toggle="modal" data-target="#myModal">
+            </a>
             </li>
             <?php } ?>
         </ul>
@@ -69,6 +71,19 @@
     </div>
 </div>
 <input type="hidden" value="{id}" class="announcement-id"/>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3><?php echo ucfirst($ann->announcement_title); ?></h3>
+      </div>
+      <div class="modal-body">
+        <img src="" style="width:100%;height:100%;">
+      </div>
+    </div>
+  </div>
+</div>
 <?php require_once('includes/footer.php'); ?>
 </body>
 </html>

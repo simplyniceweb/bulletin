@@ -28,6 +28,7 @@
                     <li class="list-group-item"><i class="glyphicon glyphicon-plus"></i> <a href="bulletin">Add Bulletin Board</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-briefcase"></i> <a href="department">Add Department</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <a href="studentnumber">Add Student Number</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-wrench"></i> <a href="admin/edit_user">Edit User</a></li>
                 </ul>
             </div>
         </div>

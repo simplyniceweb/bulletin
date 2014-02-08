@@ -60,6 +60,7 @@
 	
 	// Delete
 	var deleteConf = {
+		image: '.img-square',
 		archive_img: '.glyphicon-remove-circle',
 		announcement: '.announcement-delete',
 		announcement_id: '.announcement-id',
@@ -67,6 +68,12 @@
 	}
 	
 	var deleteFunc = {
+		view_img: function() {
+			return this.delegate(deleteConf.image, "click", function(){
+				var me = $(this), img_src = me.attr("src");
+				$(".modal-body > img").attr("src", img_src);
+			});
+		},
 		archive_img: function() {
 			return this.delegate(deleteConf.archive_img, "click", function(){
 				var me = $(this),
@@ -109,6 +116,7 @@
 	}
 
 	$.extend(config.doc, deleteFunc);
+	config.doc.view_img();
 	config.doc.archive_img();
 	config.doc.announcement();
 	
