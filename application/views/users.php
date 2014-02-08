@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
 	<style>
 		.mainpage { background: #FFF }
+		a, .glyphicon { color: green !important }
+		body { background: #F1F1F1 }
 	</style>
 </head>
 <body>
@@ -16,6 +18,9 @@
     <div class="row">
         <div class="col-md-12">
 			<legend><h3>Edit user</h3></legend>
+			<div class="form-group">
+				<input type="text" class="form-control" name="username" required="required" placeholder="Student Name"/>
+			</div>
 			<div class="form-group">
 				<label for="department_bull"><small>Course</small></label>
 				<select id="department_bull" class="edit-user form-control" name="department_id" required="required">
