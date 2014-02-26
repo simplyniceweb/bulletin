@@ -52,7 +52,9 @@ class Login extends CI_Controller {
 					$department = $dept->department_id;
 				}
 			} else {
-				redirect('login/?std=invalid');
+				if($sess_array['user_level'] == 0) {
+					redirect('login/?std=invalid');
+				}
 			}
 			$sess_array['department'] = $department;
 		}
