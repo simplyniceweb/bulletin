@@ -41,6 +41,15 @@ if(!is_null($announcement)) {
 	<?php if(isset($_GET['update']) && $_GET['update'] == 'true'): ?>
         <div class="alert alert-success">Announcement has been updated successfuly!</div>
     <?php endif; ?>
+	<?php if(isset($_GET['date']) && $_GET['date'] == 'start_less'): ?>
+        <div class="alert alert-danger">Announcement starting date should not be less than the date today.</div>
+    <?php endif; ?>
+	<?php if(isset($_GET['date']) && $_GET['date'] == 'end_less'): ?>
+        <div class="alert alert-danger">Announcement end date should not be less than the date of announcement start.</div>
+    <?php endif; ?>
+	<?php if(isset($_GET['date']) && $_GET['date'] == 'equal'): ?>
+        <div class="alert alert-danger">Announcement end date should not be equal than the announcement starting date.</div>
+    <?php endif; ?>
     
         <div class="col-md-7 col-md-offset-2">
             <div class="panel panel-success">
@@ -52,7 +61,7 @@ if(!is_null($announcement)) {
                 <?php echo form_open_multipart('bulletin/process'); ?>
                     <div class="form-group">
                         <label for="announcement_category"><small>Announcement Category</small></label>
-                        <select id="announcement_category" class="form-control" name="announcement_category" required="required">
+                        <select id="announcement_category" class="form-control" name="announcement_category" required>
                             <option value="">Choose Department</option>
                             <option <?php if(!is_null($category) && $category == 0) { echo "selected='selected'"; }?> value="0">General</option>
                             <?php foreach($department as $did) { ?>
@@ -78,7 +87,7 @@ if(!is_null($announcement)) {
                     
                     <div class="form-group">
                     	<label for="announcement_description"><small>Announcement Description</small></label>
-                        <textarea type="text" id="announcement_description" class="form-control" name="announcement_description" required="required"><?php echo $description; ?></textarea>
+                        <textarea type="text" id="announcement_description" class="form-control" name="announcement_description" required><?php echo $description; ?></textarea>
                     </div>
                     
                     <div class="form-group">

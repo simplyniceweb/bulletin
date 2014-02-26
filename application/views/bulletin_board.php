@@ -31,8 +31,8 @@
             <?php } else { ?>
             <ul class="nav nav-pills nav-justified">
 				<?php foreach($department as $dept) { ?>
-                <li class="active" data-tab-id="<?php echo $dept->department_id; ?>"><a href="javascript: void(0);"><?php echo $dept->department_name; ?> <span class="badge pull-right"><?php echo $counter ;?></span></a></li>
-                <li data-tab-id="0"><a href="javascript: void(0);">General <span class="badge pull-right"><?php echo $general; ?></span></a></li>
+                <li data-tab-id="<?php echo $dept->department_id; ?>"><a href="javascript: void(0);"><?php echo $dept->department_name; ?> <span class="badge pull-right"><?php echo $counter ;?></span></a></li>
+                <li class="active" data-tab-id="0"><a href="javascript: void(0);">General <span class="badge pull-right"><?php echo $general; ?></span></a></li>
                 <?php } ?>
 			</ul>
             <?php } ?>

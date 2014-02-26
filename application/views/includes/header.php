@@ -4,6 +4,8 @@
             <div class="navbar-header">
             <?php if($session['user_level'] == 99): ?>
             <a class="navbar-brand" href="">Bulletin Board</a>
+            <?php else: ?>
+            <a class="navbar-brand" href="homepage">Bulletin Board</a>
             <?php endif; ?>
             </div>
             <ul class="nav navbar-nav navbar-right">

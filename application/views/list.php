@@ -60,7 +60,9 @@
                 foreach($images->result() as $img) {
             ?>
             <li class="announcement-img">
+            <?php if(isset($session) && $session['user_level'] == 99): ?>
             <i class="glyphicon glyphicon-remove-circle" data-entry-id="<?php echo $img->image_id; ?>"></i>
+            <?php endif; ?>
             <a href="#">
             <img src="assets/announcement/<?php echo $img->image_name; ?>" class="img-square img-<?php echo $img->image_id; ?>"  style="padding: 3px; border: 1px solid #CCC; background: #FFF; width: 150px; height: 150px" data-toggle="modal" data-target="#myModal">
             </a>

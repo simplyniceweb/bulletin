@@ -42,18 +42,15 @@ class Bulletin extends CI_Controller {
 		);
 
 		if($data['announcement_start'] < $date) {
-			echo "Announcement starting date should not be less than the date today.";
-			return false;
+			redirect("bulletin?date=start_less");
 		}
 		
 		if($data['announcement_end'] < $data['announcement_start']) {
-			echo "Announcement end date should not be less than the date of announcement start.";
-			return false;
+			redirect("bulletin?date=end_less");
 		}
 		
 		if($data['announcement_end'] == $data['announcement_start']) {
-			echo "Announcement end date should not be equal than the announcement starting date.";
-			return false;
+			redirect("bulletin?date=equal");
 		}
 		
 		if($action == 0) {
