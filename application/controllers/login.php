@@ -51,6 +51,8 @@ class Login extends CI_Controller {
 				foreach($department->result() as $dept) {
 					$department = $dept->department_id;
 				}
+			} else {
+				redirect('login/?std=invalid');
 			}
 			$sess_array['department'] = $department;
 		}

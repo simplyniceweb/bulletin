@@ -29,7 +29,13 @@
             <small>Please provide the right credentials.</small>
         </div>
 		<?php endif; ?>
-		
+
+		<?php if(isset($_GET['std']) && $_GET['std'] == "invalid"): ?>
+        <div class="alert alert-danger">
+            <small>Student ID does not exist.</small>
+        </div>
+		<?php endif; ?>
+
 		<?php if(isset($_GET['ban']) && $_GET['ban'] == "true"): ?>
         <div class="alert alert-danger">
             <small>An adminastrator blocked you from viewing this system.</small>
