@@ -45,6 +45,7 @@ class Login extends CI_Controller {
 			
 			$this->db->from('student_id');
 			$this->db->where('unique', $sess_array['user_std_id']);
+			$this->db->where('id_status', 0);
 			$department = $this->db->get();
 			
 			if($department->num_rows > 0) {
